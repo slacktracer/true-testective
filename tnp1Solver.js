@@ -1,34 +1,37 @@
 'use strict';
 var tnp1Solver = function tnp1Solver(input) {
     var
+        current,
+        cycleLength,
         i,
         length,
+        maximumCycleLength,
         n,
+        output,
         terminal;
-    input = tnp1Solver.splitter(input);
-    input.forEach(function forEach(element, index, array) {
-        n = +element[0];
-        terminal = +element[1];
-        for (; n <= terminal; n += 1) {
-            console.log('n', n)
-            console.log('terminal', terminal)
-            while (n === 1) {
-                if (n % 2 !== 0) {
-                    n = (n * 3) + 1;
-                } else {
-                    n /= 2;
-                }
-                console.log(n)
+    output = tnp1Solver.splitter(input);
+    output.forEach(function forEach(element, index, array) {
+        /* cool... remember, remember... */
+        /*element = element
+            .map(function map(currentValue) {
+                return +currentValue;
+            });*/
+        element[0] = +element[0];
+        element[1] = +element[1];
+        maximumCycleLength = 1;
+        for (current = element[0], terminal = element[1]; current <= terminal; current += 1) {
+            cycleLength = tnp1Solver.process(current);
+            if (cycleLength > maximumCycleLength) {
+                maximumCycleLength = cycleLength;
             }
         }
+            console.log(element)
+        element.push(maximumCycleLength);
+        console.log(element)
     });
-    // input.map(function map(element) {
-    //     console.log(element);
-    //     element.reduce(function reduce(element) {
-    //         console.log(element);
-    //     });
-    // });
-    return input;
+    console.log(output);
+    output = tnp1Solver.joiner(output);
+    return output;
 };
 tnp1Solver.joiner = function joiner(input) {
     var
@@ -39,6 +42,22 @@ tnp1Solver.joiner = function joiner(input) {
         })
         .join('\n');
     return output;
+};
+tnp1Solver.process = function process(n) {
+    var
+        steps;
+    steps = 1;
+    console.log(n);
+    while (n !== 1) {
+        if (n % 2 !== 0) {
+            n = (n * 3) + 1;
+        } else {
+            n /= 2;
+        }
+        console.log(n);
+        steps += 1;
+    }
+    return steps;
 };
 tnp1Solver.splitter = function splitter(input) {
     var
