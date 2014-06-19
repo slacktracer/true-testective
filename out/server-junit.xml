@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+  <testsuite>
+<testcase classname="main" name="main:7:1">
+  <failure message="'describe' was used before it was defined." />
+</testcase>
+<testcase classname="main" name="main:8:5">
+  <failure message="'it' was used before it was defined." />
+</testcase>
+<testcase classname="main" name="main:10:20">
+  <failure message="'resr' was used before it was defined." />
+</testcase>
+<testcase classname="main" name="main:10:13">
+  <failure message="Expected an assignment or function call and instead saw an expression." />
+</testcase>
+  </testsuite>
+</testsuites>

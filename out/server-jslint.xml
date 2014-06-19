@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jslint>
+<file name="main.js">
+<issue line="7" char="1" reason="'describe' was used before it was defined." evidence="describe('Suite one', function () {"/>
+<issue line="8" char="5" reason="'it' was used before it was defined." evidence="    it('should test something', function (done) {"/>
+<issue line="10" char="20" reason="'resr' was used before it was defined." evidence="            expect(resr).to.exist;"/>
+<issue line="10" char="13" reason="Expected an assignment or function call and instead saw an expression." evidence="            expect(resr).to.exist;"/>
+</file>
+</jslint>
